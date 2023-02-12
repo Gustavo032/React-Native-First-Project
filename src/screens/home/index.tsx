@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TextInput } from "react-native";
+import { Text, View, TextInput } from "react-native";
 
 import { styles } from './styles'
 
@@ -19,7 +19,12 @@ export default function Home(){
 				Sabado, 11 de Fevereiro de 2023
 			</Text>
 
-			<TextInput value="Texto de exemplo" style={styles.input}/>
+			<TextInput 
+			 style={styles.input}
+			 placeholder="nome do participante"
+			 placeholderTextColor="#484848"
+			 keyboardType="default"			  
+			/>
 		</View>
 	);
 }
