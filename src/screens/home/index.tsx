@@ -1,13 +1,16 @@
-import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, TextInput, TouchableOpacity, ScrollView } from "react-native";
 import { Participant } from "../../components/Participant";
 
 import { styles } from './styles'
 
 export default function Home(){
+	const participants = ['Gustavo', 'Eliana', 'Rafael', 'Angelica', 'Geovane', 'Miriam', "Gisele", "Joelma", "Leia", "Eliane", "Vanessa", "Imaculada", "Fernanda", "Renato", "Marcus", "Juan", "Ariane", 'Adriana', "Alexandre", "Larissa", "Rosana", "Ramiro", "Paulo", "Luciano", "Cristiane"]
+	
+	
 	function handleParticipantAdd(){
 		console.log("Participant added!")
 	}
-
+	
 	function handleParticipantRemove(name:string){
 		console.log(`Participant removed ${name}!`)
 	}
@@ -46,13 +49,20 @@ export default function Home(){
 					</Text>
 				</TouchableOpacity>	
 			</View>
-
-			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
-			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
-			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
-			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
-			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
-			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
+			
+			<ScrollView showsVerticalScrollIndicator={false}>
+				{
+					participants.map((participant) =>{
+						return (
+							<Participant 
+								key={participant}
+								name={participant} 
+								onRemove={()=>{handleParticipantRemove(participant)}}
+							/>
+						)
+					})	
+				}
+			</ScrollView>
 
 		</View>
 	);
