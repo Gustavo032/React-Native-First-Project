@@ -1,4 +1,5 @@
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import { Participant } from "../../components/Participant";
 
 import { styles } from './styles'
 
@@ -23,21 +24,31 @@ export default function Home(){
 				Sabado, 11 de Fevereiro de 2023
 			</Text>
 
-			<TextInput 
-			 style={styles.input}
-			 placeholder="nome do participante"
-			 placeholderTextColor="#484848"
-			 keyboardType="default"			  
-			/>	
+			<View style={styles.form}>
 
-			<TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
-			 	<Text
-					
-					style={styles.buttonText}
-				>
-					+ 	
-				</Text>
-			</TouchableOpacity>	
+				<TextInput 
+				style={styles.input}
+				placeholder="nome do participante"
+				placeholderTextColor="#484848"
+				keyboardType="default"			  
+				/>	
+
+				<TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
+					<Text
+						
+						style={styles.buttonText}
+					>
+						+ 	
+					</Text>
+				</TouchableOpacity>	
+			</View>
+
+			<Participant name="Gustavo Ramos"/>
+			<Participant name="Geovane Alguma coisa"/>
+			<Participant name="Miriam Martirino"/>
+			<Participant name="Eliana Feitosa"/>
+			<Participant name="Angelica Ponciano"/>
+			<Participant name="Rafael Ponciano"/>
 
 		</View>
 	);
