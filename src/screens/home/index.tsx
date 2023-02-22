@@ -8,6 +8,10 @@ export default function Home(){
 		console.log("Participant added!")
 	}
 
+	function handleParticipantRemove(name:string){
+		console.log(`Participant removed ${name}!`)
+	}
+
 	return(
 		<View style={styles.container}
 		>
@@ -43,12 +47,12 @@ export default function Home(){
 				</TouchableOpacity>	
 			</View>
 
-			<Participant name="Gustavo Ramos"/>
-			<Participant name="Geovane Alguma coisa"/>
-			<Participant name="Miriam Martirino"/>
-			<Participant name="Eliana Feitosa"/>
-			<Participant name="Angelica Ponciano"/>
-			<Participant name="Rafael Ponciano"/>
+			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
+			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
+			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
+			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
+			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
+			<Participant name="Gustavo Ramos" onRemove={()=>{handleParticipantRemove("rodrigo")}}/>
 
 		</View>
 	);
