@@ -1,16 +1,20 @@
 import { Text, View, TextInput, TouchableOpacity, ScrollView, FlatList, Alert } from "react-native";
 import { Participant } from "../../components/Participant";
+import { useState } from "react";
 
 import { styles } from './styles'
 
 export default function Home(){
-	const participants = ['Gustavo', 'Eliana', 'Rafael', 'Angelica', 'Geovane', 'Miriam', "Gisele", "Joelma", "Leia", "Eliane", "Vanessa", "Imaculada", "Fernanda", "Renato", "Marcus", "Juan", "Ariane", 'Adriana', "Alexandre", "Larissa", "Rosana", "Ramiro", "Paulo", "Luciano", "Cristiane"]
+	const [ participants, setParticipants ] = useState(['Gustavo']);
+
 	
 	
-	function handleParticipantAdd(){
-		if(participants.includes("Gustavo")){
-			Alert.alert("Gustavo já existe", "cadastre uma variação deste nome")
+	function handleParticipantAdd(name: string){
+		if(participants.includes(name='Paulo')){
+			return Alert.alert("Gustavo já existe", "cadastre uma variação deste nome")
 		}
+
+		setParticipants(prevState=>[...prevState, name])
 
 		console.log("Participant added!")
 	}
@@ -54,7 +58,7 @@ export default function Home(){
 				keyboardType="default"			  
 				/>	
 
-				<TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
+				<TouchableOpacity style={styles.button} onPress={()=>{handleParticipantAdd('Paulo')}}>
 					<Text
 						
 						style={styles.buttonText}
