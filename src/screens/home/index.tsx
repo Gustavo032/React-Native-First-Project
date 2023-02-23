@@ -5,16 +5,17 @@ import { useState } from "react";
 import { styles } from './styles'
 
 export default function Home(){
-	const [ participants, setParticipants ] = useState(['Gustavo']);
-
+	const [ participants, setParticipants ] = useState<string[]>([]);
+	const [ participantName, setParticipantName ] = useState('')
 	
 	
-	function handleParticipantAdd(name: string){
-		if(participants.includes(name='Paulo')){
-			return Alert.alert("Gustavo já existe", "cadastre uma variação deste nome")
+	function handleParticipantAdd(){
+		if(participants?.includes(participantName)){
+			return Alert.alert(`${participantName} já existe", "cadastre uma variação deste nome`)
 		}
 
-		setParticipants(prevState=>[...prevState, name])
+		setParticipants(prevState=>[...prevState, participantName])
+		setParticipantName('')
 
 		console.log("Participant added!")
 	}
@@ -55,10 +56,12 @@ export default function Home(){
 				style={styles.input}
 				placeholder="nome do participante"
 				placeholderTextColor="#484848"
-				keyboardType="default"			  
+				keyboardType="default"		
+				onChangeText={text => setParticipantName(text)}	 
+				value={participantName} 
 				/>	
 
-				<TouchableOpacity style={styles.button} onPress={()=>{handleParticipantAdd('Paulo')}}>
+				<TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
 					<Text
 						
 						style={styles.buttonText}
