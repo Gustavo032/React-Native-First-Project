@@ -7,6 +7,7 @@ import { styles } from './styles'
 export default function Home(){
 	const [ participants, setParticipants ] = useState<string[]>([]);
 	const [ participantName, setParticipantName ] = useState('')
+	const today = new Date()
 	
 	
 	function handleParticipantAdd(){
@@ -38,6 +39,9 @@ export default function Home(){
 		console.log(`Participant removed ${name}!`)
 	}
 
+	const meses = [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+	
+	
 	return(
 		<View style={styles.container}
 		>
@@ -45,13 +49,20 @@ export default function Home(){
 			
 				style={styles.title}
 			>
-				Consegui!
+				Contabilize Evento
 			</Text>
 			
 			<Text key={1234}
 				style={styles.description}
-			> 
-				Sabado, 11 de Fevereiro de 2023
+				> 
+					{today.getDay() == 0 && ('Domingo')}
+					{today.getDay() == 1 && ('Segunda-Feira')}	
+					{today.getDay() == 2 && ('Terça-Feira')}
+					{today.getDay() == 3 && ('Quarta-Feira')}
+					{today.getDay() == 4 && ('Quinta-Feira')}
+					{today.getDay() == 5 && ('Sexta-Feira')}
+					{today.getDay() == 6 && ('Sábado')}
+					, {today.getDate()} de { meses[today.getMonth()]} de {today.getFullYear()}
 			</Text>
 
 			<View style={styles.form}>
